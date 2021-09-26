@@ -21,7 +21,7 @@ function scaredAction () {
     }
     for (let index = 0; index < randint(1, 3); index++) {
         delayEachIteration_ms = randint(5, 20)
-        for (let index = 0; index <= randint(80, 95); index++) {
+        for (let index = 0; index <= randint(83, 100); index++) {
             if (isScaredAgain()) {
                 pins.servoWritePin(AnalogPin.P1, 0)
                 basic.showIcon(IconNames.Confused)
