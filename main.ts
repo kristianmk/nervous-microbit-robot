@@ -12,50 +12,38 @@ function scaredAction () {
     delayEachIteration_ms = delay_ms / delayDivider
     for (let index = 0; index <= delayDivider; index++) {
         if (isScaredAgain()) {
-            pins.servoWritePin(AnalogPin.P1, 0)
-            basic.showIcon(IconNames.Confused)
-            decreaseScared()
-            return 0
+            return scaredAgain()
         }
         basic.pause(delayEachIteration_ms)
     }
     for (let index = 0; index < randint(1, 3); index++) {
         delayEachIteration_ms = randint(5, 20)
-        for (let index = 0; index <= randint(83, 100); index++) {
+        for (let index3 = 0; index3 <= randint(83, 100); index3++) {
             if (isScaredAgain()) {
-                pins.servoWritePin(AnalogPin.P1, 0)
-                basic.showIcon(IconNames.Confused)
-                decreaseScared()
-                return 0
+                return scaredAgain()
             }
             basic.pause(delayEachIteration_ms)
-            pins.servoWritePin(AnalogPin.P1, index)
+            pins.servoWritePin(AnalogPin.P1, index3)
         }
         pins.servoWritePin(AnalogPin.P1, 0)
         delay_ms = randint(500, 3000)
         delayDivider = 100
         delayEachIteration_ms = delay_ms / delayDivider
-        for (let index = 0; index <= delayDivider; index++) {
+        for (let index4 = 0; index4 <= delayDivider; index4++) {
             if (isScaredAgain()) {
-                pins.servoWritePin(AnalogPin.P1, 0)
-                basic.showIcon(IconNames.Confused)
-                decreaseScared()
-                return 0
+                return scaredAgain()
             }
             basic.pause(delayEachIteration_ms)
         }
     }
     for (let index = 0; index < randint(1, 1); index++) {
         delayEachIteration_ms = randint(20, 75)
-        for (let index = 0; index <= 180; index++) {
+        for (let index6 = 0; index6 <= 180; index6++) {
             if (isScaredAgain()) {
-                pins.servoWritePin(AnalogPin.P1, 0)
-                basic.showIcon(IconNames.Confused)
-                decreaseScared()
-                return 0
+                return scaredAgain()
             }
             basic.pause(delayEachIteration_ms)
-            pins.servoWritePin(AnalogPin.P1, index)
+            pins.servoWritePin(AnalogPin.P1, index6)
         }
     }
     decreaseScared()
@@ -70,6 +58,12 @@ input.onSound(DetectedSound.Loud, function () {
 function isScaredAgain () {
     return scared > 1
 }
+function scaredAgain () {
+    pins.servoWritePin(AnalogPin.P1, 0)
+    basic.showIcon(IconNames.Confused)
+    decreaseScared()
+    return 0
+}
 let delayEachIteration_ms = 0
 let delayDivider = 0
 let delay_ms = 0
@@ -77,9 +71,11 @@ let scared = 0
 scared = 0
 pins.servoWritePin(AnalogPin.P1, 180)
 basic.forever(function () {
-    if (isScared()) {
-        scaredAction()
-    } else {
-        basic.showIcon(IconNames.Happy)
+    while (true) {
+        if (isScared()) {
+            scaredAction()
+        } else {
+            basic.showIcon(IconNames.Happy)
+        }
     }
 })
