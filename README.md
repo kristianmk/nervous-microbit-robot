@@ -2,7 +2,7 @@
 > Open this page at [https://kristianmk.github.io/nervous-microbit-robot/](https://kristianmk.github.io/nervous-microbit-robot/)
 
 ## View the robot in action on Youtube!
-[![Nervous Microbit Robot](https://img.youtube.com/vi/X41BUvrpheA/0.jpg)](https://www.youtube.com/watch?v=X41BUvrpheA "Nervous Microbit Robot")
+[![Nervous Microbit Robot](https://img.youtube.com/vi/GQfmwsMRWK4/0.jpg)](https://www.youtube.com/watch?v=GQfmwsMRWK4 "Nervous Microbit Robot")
 
 ## Use as Extension
 
